@@ -1,5 +1,5 @@
 import Interfaces.IDepartment;
-
+//high level model
 public class DepartmentManagement {
     private IDepartment department;
 //    private HumanResource department;
