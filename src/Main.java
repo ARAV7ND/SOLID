@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Main {
     static Map<Integer, IDepartment> departmentMap = new HashMap<>();
+    static List<IEmployee> employeeList = new ArrayList<>();
     public static void displayEmployeeTypes(){
 
         System.out.println("1.Permanent Employee");
@@ -17,9 +18,8 @@ public class Main {
         System.out.println("2.Human Resource");
         System.out.println("3.Development");
     }
-    public static void main(String[] args) {
+    public static void getInput(){
         Scanner scanner = new Scanner(System.in);
-        List<IEmployee> employeeList = new ArrayList<>();
         System.out.println("Enter the number of Employees : ");
         int noOfEmployees = scanner.nextInt();
         while (noOfEmployees-->0){
@@ -61,6 +61,8 @@ public class Main {
                 departmentMap.put(employeeId,new Development());
             }
         }
+    }
+    public static void displayEmployeeList(){
         for(var employee : employeeList){
             if(employee instanceof Employee){
                 Employee emp = (Employee)employee;
@@ -72,5 +74,13 @@ public class Main {
                         +", Department : "+departmentMap.get(emp.employeeId).getDepartmentDetails()+", Minimum salary : "+emp.getMinimumSalary());
             }
         }
+    }
+    public static void main(String[] args) {
+//        getInput();
+//        displayEmployeeList();
+        ArrayList<IEmployee> empList = new ArrayList<>();
+        empList.add(new PermanentEmployee(01,"JHON",5000));
+        empList.add(new ContractBasedEmployee(02,"Mike",45000));
+
     }
 }

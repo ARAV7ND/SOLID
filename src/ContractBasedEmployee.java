@@ -10,8 +10,9 @@ public class ContractBasedEmployee implements IEmployee {
         this.employeeName = employeeName;
         this.minSalary = minSalary;
     }
-
+    @Override
     public double getMinimumSalary(){
         return minSalary;
     }
 }
+
