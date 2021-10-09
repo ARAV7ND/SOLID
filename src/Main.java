@@ -7,58 +7,62 @@ public class Main {
     static Map<Integer, IDepartment> departmentMap = new HashMap<>();
     static List<IEmployee> employeeList = new ArrayList<>();
     public static void displayEmployeeTypes(){
-
-        System.out.println("1.Permanent Employee");
-        System.out.println("2.Temporary Employee");
-        System.out.println("3.Contract Based Employee");
-
+        System.out.println("1.Permanent Employee\n2.Temporary Employee\n3.Contract Based Employee");
     }
     public static void displayDepartmentTypes(){
-        System.out.println("1.Finance");
-        System.out.println("2.Human Resource");
-        System.out.println("3.Development");
+        System.out.println("1.Finance\n2.Human Resource\n3.Development");
     }
-    public static void getInput(){
+    public static void getInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the number of Employees : ");
         int noOfEmployees = scanner.nextInt();
-        while (noOfEmployees-->0){
+        while (noOfEmployees-- > 0) {
             System.out.println("Enter Employee Id : ");
             int employeeId = scanner.nextInt();
-            System.out.println("Enter Employee "+employeeId+" Name :");
+            System.out.println("Enter Employee " + employeeId + " Name :");
             String employeeName = scanner.next();
             System.out.println("Enter Minimum salary :");
             double employeeSalary = scanner.nextDouble();
             System.out.println("Choose the option from below : ");
-            System.out.println("--------------------------");
+            System.out.println("-------------------------------");
             displayEmployeeTypes();
             int option = scanner.nextInt();
-            while(option!=1 && option!=2 && option!=3) {
-                System.out.println("Please choose the correct option");
-                System.out.println("-----------------------------");
+            while (option != 1 && option != 2 && option != 3) {
+                System.out.println("Please choose the correct option :");
+                System.out.println("---------------------------------");
                 displayEmployeeTypes();
                 option = scanner.nextInt();
             }
-            if (option == 1) {
-                employeeList.add(new PermanentEmployee(employeeId, employeeName, employeeSalary));
-            } else if (option == 2) {
-                employeeList.add(new TemporaryEmployee(employeeId, employeeName, employeeSalary));
-            } else if (option == 3) {
-                employeeList.add(new ContractBasedEmployee(employeeId, employeeName, employeeSalary));
+            switch (option) {
+                case 1 :
+                    employeeList.add(new PermanentEmployee(employeeId,employeeName,employeeSalary));
+                    break;
+                case 2:
+                    employeeList.add(new TemporaryEmployee(employeeId,employeeName,employeeSalary));
+                    break;
+                case 3:
+                    employeeList.add(new ContractBasedEmployee(employeeId,employeeName,employeeSalary));
+                    break;
             }
-            System.out.println("choose the Deapartment from below");
+
+            System.out.println("choose the Department from below");
+            System.out.println("---------------------------------");
             displayDepartmentTypes();
             int departmentOption = scanner.nextInt();
-            while (departmentOption!=1 && departmentOption!=2 && departmentOption!=3){
+            while (departmentOption != 1 && departmentOption != 2 && departmentOption != 3) {
                 System.out.println("Please choose the correct option from below");
                 departmentOption = scanner.nextInt();
             }
-            if(departmentOption==1){
-                departmentMap.put(employeeId,new Finance());
-            }else if(departmentOption==2){
-                departmentMap.put(employeeId,new HumanResource());
-            }else if(departmentOption==3){
-                departmentMap.put(employeeId,new Development());
+            switch (departmentOption) {
+                case 1:
+                    departmentMap.put(employeeId, new Finance());
+                    break;
+                case 2:
+                    departmentMap.put(employeeId, new HumanResource());
+                    break;
+                case 3:
+                    departmentMap.put(employeeId, new Development());
+                    break;
             }
         }
     }
@@ -76,11 +80,8 @@ public class Main {
         }
     }
     public static void main(String[] args) {
-//        getInput();
-//        displayEmployeeList();
-        ArrayList<IEmployee> empList = new ArrayList<>();
-        empList.add(new PermanentEmployee(01,"JHON",5000));
-        empList.add(new ContractBasedEmployee(02,"Mike",45000));
-
+        getInput();
+        displayEmployeeList();
     }
 }
+// logger SLF4J

@@ -11,14 +11,4 @@ public abstract class Employee implements IEmployee, IBonus {
         this.employeeName = employeeName;
         this.minSalary = minSalary;
     }
-
-//    @Override
-//    public double getBonus() {
-//        return minSalary * 0.1;
-//    }
-//
-//    @Override
-//    public double getMinimumSalary() {
-//        return minSalary;
-//    }
 }
