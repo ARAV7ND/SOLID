@@ -6,12 +6,15 @@ import java.util.*;
 public class Main {
     static Map<Integer, IDepartment> departmentMap = new HashMap<>();
     static List<IEmployee> employeeList = new ArrayList<>();
+
     public static void displayEmployeeTypes(){
         System.out.println("1.Permanent Employee\n2.Temporary Employee\n3.Contract Based Employee");
     }
+
     public static void displayDepartmentTypes(){
         System.out.println("1.Finance\n2.Human Resource\n3.Development");
     }
+
     public static void getInput() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the number of Employees : ");
@@ -66,6 +69,7 @@ public class Main {
             }
         }
     }
+
     public static void displayEmployeeList(){
         for(var employee : employeeList){
             if(employee instanceof Employee){
@@ -79,6 +83,7 @@ public class Main {
             }
         }
     }
+
     public static void main(String[] args) {
         getInput();
         displayEmployeeList();
